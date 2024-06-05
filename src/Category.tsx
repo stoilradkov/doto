@@ -42,7 +42,7 @@ export const Category = () => {
           <h2 className="font-semibold text-xl">{category.name}</h2>
           {!keyPressed && (
             <Input
-              className="bg-gray-200 rounded-xl focus:bg-white shadow-none focus:shadow-md focus-visible:ring-0"
+              className="bg-gray-200 rounded-xl focus:bg-white focus:scale-105 shadow-none focus:shadow-md focus-visible:ring-0"
               value={newTask}
               onChange={(e) => setNewTask(e.target.value)}
               placeholder="Add a new task"
@@ -68,10 +68,14 @@ export const Category = () => {
                     className="bg-white rounded-xl px-3 pt-1.5 pb-2 flex items-center space-x-2"
                     layout
                     initial={
-                      i === 0 && keyPressed ? { opacity: 1, y: -58 } : false
+                      i === 0 && keyPressed
+                        ? { opacity: 1, scaleX: 1.05, scaleY: 1.05, y: -58 }
+                        : false
                     }
                     animate={{
                       y: 0,
+                      scaleX: 1,
+                      scaleY: 1,
                     }}
                     onAnimationComplete={() => setKeyPressed(false)}
                     transition={{ duration: 0.3 }}
